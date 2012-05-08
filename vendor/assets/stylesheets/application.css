@@ -1,0 +1,13 @@
+#outer {
+	position: relative;
+	width: 1180px;
+	margin: 0 auto;
+	padding: 30px;
+}
+
+#header {
+    position: relative;
+    padding: 30px;
+    height: 150px;
+    border: solid;
+}

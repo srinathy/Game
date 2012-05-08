@@ -1,0 +1,79 @@
+body
+{
+background-image:url('background.jpg');
+}
+#outer {
+	position: relative;
+	width: 1180px;
+	margin: 0 auto;
+	padding: 30px;
+}
+
+#header {
+    position: relative;
+    padding: 30px;
+    height: 100px;
+    border: solid;
+    background-color:#ffffff;
+}
+
+#box1 {
+	position: relative;
+	padding: 5px;
+	top: 5px;
+	height: 700px;
+	border: solid;
+	background-color:#157136;
+}
+
+#leftcol {
+	position: relative;
+	float: left;
+	height: 695px;
+	width: 200px;
+	border: solid;
+	background-color:#ffffff;
+}
+
+#content {
+	left: 5px;
+	position: relative;
+	float: left;
+	width: 947px;
+	height: 600px;
+	border: solid;
+	
+}
+
+#contentbox1 {
+	padding: 20px;
+	margin: 5px 0 0 5px;
+	position: relative;
+	float: left;
+	width: 600px;
+	height: 246px;
+	border: solid;
+	background-color:#ffffff;
+}
+
+#contentbox2 {
+	
+}
+#basket {
+	margin: 5px 5px 0 5px;
+	position: relative;
+	float: right;
+	width: 277px;
+	height: 285px;
+	border: solid;
+	background-color:#ffffff;
+}
+#footer {
+	margin: 5px 0 0 5px;	
+	height: 84px;
+	width: 947px;
+	float: left;
+	position: relative;
+	background-color:#ffffff;
+	border: solid;
+}
