@@ -1,4 +1,8 @@
 Game::Application.routes.draw do
+  resources :sessions
+
+  resources :baskets
+
   resources :products
 
   resources :users

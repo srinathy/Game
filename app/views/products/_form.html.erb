@@ -23,6 +23,18 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+  <div class="field">
+    <%= f.label "Image Name:" %><br />
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :certificate %><br />
+    <%= f.collection_select :certificate, Product::CERTIFICATES, :to_s, :to_s, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :releasedate %><br />
+    <%= f.date_select :releasedate %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
