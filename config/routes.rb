@@ -10,6 +10,8 @@ Game::Application.routes.draw do
   end
 
   resources :users
+  match '/checkout', to: 'pages#checkout'
+  match '/users', to: 'user#index'
   match '/users/:id', to: 'users#edit'
   match '/search', to: 'pages#search'
   match '/signup', to: 'users#new'
@@ -17,10 +19,9 @@ Game::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/empty', to: 'items#destroy', via: :delete
   match '/upload', to: 'products#new'
-  
   match '/products', to: 'products#index'
+  match '/items/:id', to: 'items#create'
   
-  match 'items/:id', to: 'items#create'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

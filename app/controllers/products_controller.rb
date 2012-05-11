@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
-  # GET /products
-  # GET /products.json
+  caches_page :index
+  
   def index
+    @title = "Current Products"
     @products = Product.all
 
     respond_to do |format|
@@ -10,35 +11,30 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/1
-  # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-
+    @title = @product.name
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }
     end
   end
 
-  # GET /products/new
-  # GET /products/new.json
   def new
+    @title = "Add a new Product"
     @product = Product.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @product }
     end
   end
 
-  # GET /products/1/edit
+
   def edit
+    @title = "Edit Product"
     @product = Product.find(params[:id])
   end
 
-  # POST /products
-  # POST /products.json
   def create
     @product = Product.new(params[:product])
 
@@ -53,8 +49,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PUT /products/1
-  # PUT /products/1.json
   def update
     @product = Product.find(params[:id])
 
@@ -69,8 +63,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.json
   def destroy
     @product = Product.find(params[:id])
     @product.destroy

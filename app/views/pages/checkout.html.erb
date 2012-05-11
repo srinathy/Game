@@ -1,0 +1,43 @@
+<center><H2>Payment Details</H2></center>
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+  
+  <div class="field">
+  <%= f.label "Card Number" %><br />
+  <%= f.text_field :card %>
+  </div>
+  <div class="field">
+  <%= f.label "Expiry Date" %><br />
+  <%= f.text_field :expiry %>
+  </div>
+  <div class="field">
+  <%= f.label "Security Code" %><br />
+  <%= f.text_field :code %>
+  </div>
+  
+<h3>Summary of Items:</p></h3>
+<table cellspacing=2 c width= 230>
+  <tr align=center>
+    <th align= left>Name</th>
+    <th>Qty</th>
+    <th>Price</th>
+  </tr> 
+  <% if basket_empty?%>    
+    <% @basket = current_basket%>
+    <% @basket.items.each do |item| %>
+      <tr>
+      <td><%= item.product.name %></td>
+      <td align= center><%= item.quantity%></td>
+      <td align= center>&pound<%= item.product.price%></td>
+      </tr>   
+    <%end%>    
+  <% else %> 
+  <% end %>
+</table>
+<b>Total Price of transaction:</b> &pound;<%= total_price %>
+<p> 
+  <div class="actions">
+    <%= f.submit "Pay" %>
+  </div>
+<% end %>
+</p>

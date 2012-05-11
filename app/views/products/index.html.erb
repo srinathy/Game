@@ -21,15 +21,17 @@
     <td align= center>&pound<%= h(product.price) %></td>
     <td align= center><%= h(product.quantity) %></td>
     <td><%= link_to 'See More', product %></br>
+    <%if current_user.admin == true%>
         Admin Actions:</br>
         <%= link_to 'Edit', edit_product_path(product)%>      
         <%= link_to 'Delete', product_path(product),
         :method => :delete, :confirm => "Are you sure?" %></td>
+    <%else%>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
-<br />
 
 
 

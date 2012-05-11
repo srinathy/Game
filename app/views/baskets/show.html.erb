@@ -1,5 +1,26 @@
+<p id="notice"><%= notice %></p>
 <h4>Shopping Basket</h4>
 <ul>
+<table width="600" cellpadding= "0">
+  <tr align= left>
+    <th> </th>
+    <th>Name</th>
+    <th>Certificate</th>
+    <th>Release Date</th>
+    <th>Price</th>
+    <th>Quantity </th>  
+    <th></th>
+    <th></th>
+  </tr>
+
 <% @basket.items.each do |item| %>
-<li><%= item.product.name %></li>
+  <tr>
+    <td><%= image_tag(item.product.image, :size => "75x100") %></td>
+    <td><%= h(item.product.name) %></td>    
+    <td align= center><%=h(item.product.certificate) %></td>
+    <td align= center><%= h(item.product.releasedate) %></td>
+    <td align= center>&pound<%= h(item.product.price) %></td>
+    <td align= center><%= h(item.quantity) %></td>
+  </tr>
 <% end %>
+</table>

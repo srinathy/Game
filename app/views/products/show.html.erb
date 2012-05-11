@@ -2,26 +2,18 @@
 <p> 
   <center><h1><%= @product.name %></h1></center> 
 </p>
-
-
 <p>
 </p>
-  <%= image_tag @product.image %>
-  
-    <b>Price: </b>&pound<%= @product.price %>
-    
-      
-  
-  
-<p><b>Certificate:</b><%= @product.certificate %></p>
-  <b>Release Date: </b> <%= @product.releasedate %>
-
+  <%= image_tag(@product.image,:size => "100x125") %> </br>
+<b>Price: </b>&pound<%= @product.price %></br>
+<b>Certificate:</b><%= @product.certificate %></br>
+  <b>Release Date: </b> <%= @product.releasedate %></br>
+  <b>Number in Stock:</b><%= @product.quantity %>
 <p>
-
-  <b>Description:</b>
-  <%= @product.description %>
+<b>Description:</b>
+<%= @product.description %>
 </p>
-<p><%= link_to 'Back', products_path %> <%= button_to "Add to Cart", item_path(:product_id => @product) %></p>
+<p><%= button_to "Add to Cart", item_path(:product_id => @product) %></p>
     
 
 

@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   
-  def create
-    
+  def create  
     @basket = current_basket
     product = Product.find(params[:product_id])
     current_item = @basket.items.find_by_product_id(product.id)

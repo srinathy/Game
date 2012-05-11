@@ -6,8 +6,12 @@ class ApplicationController < ActionController::Base
   helper_method :total_price
   helper_method :total_items
   
-  private
   
+  private
+  def set_user_admin
+    @user = User.find(params[:id])
+    @user.update_attribute(:admin, true)
+  end
   def current_basket
     @current_basket = Basket.find(session[:basket_id])
     rescue ActiveRecord::RecordNotFound

@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   
   def index
     @users = User.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -28,12 +27,12 @@ class UsersController < ApplicationController
     end
   end
   
-  def create
-    
+  def create 
     @title = "Signup"
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
+        sign_in(@user)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
@@ -64,6 +63,7 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
   
   private
     def correct_user

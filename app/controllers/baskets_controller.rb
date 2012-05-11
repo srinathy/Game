@@ -1,33 +1,22 @@
 class BasketsController < ApplicationController
-  
-  
-
-  
   def show
     @basket = Basket.find(params[:id])
-
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.json { render json: @basket }
     end
   end
-  # GET /baskets/new
-  # GET /baskets/new.json
+  
   def new
     @basket = Basket.new
-
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @basket }
     end
   end
-
-  # GET /baskets/1/edit
-  def edit
-    @basket = Basket.find(params[:id])
-  end
-
+  
   def create
+    @title = "Your Basket"
     @basket = Basket.new(params[:basket])
 
     respond_to do |format|
@@ -38,32 +27,6 @@ class BasketsController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @basket.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def update
-    @basket = Basket.find(params[:id])
-
-    respond_to do |format|
-      if @basket.update_attributes(params[:basket])
-        format.html { redirect_to @basket, notice: 'Basket was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @basket.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /baskets/1
-  # DELETE /baskets/1.json
-  def destroy
-    @basket = Basket.find(params[:id])
-    @basket.destroy
-
-    respond_to do |format|
-      format.html { redirect_to baskets_url }
-      format.json { head :no_content }
     end
   end
 end

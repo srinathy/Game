@@ -1,0 +1,31 @@
+<H2>Search Results</H2>
+<% if @products.empty? %>
+  <span>There were no results for your Search.</span><br/><br/>
+<% else %>
+  <table width="600" cellpadding= "0">
+  <tr align= left>
+    <th> </th>
+    <th>Name</th>
+    <th>Certificate</th>
+    <th>Release Date</th>
+    <th>Price</th>
+    <th>Quantity in Stock</th>  
+    <th></th>
+    <th></th>
+  </tr>
+  <% @products.each do |product| %>
+  <tr>
+    <td><%= image_tag(product.image, :size => "75x100") %></td>
+    <td><%= h(product.name) %></td>    
+    <td align= center><%=h(product.certificate) %></td>
+    <td align= center><%= h(product.releasedate) %></td>
+    <td align= center>&pound<%= h(product.price) %></td>
+    <td align= center><%= h(product.quantity) %></td>
+    <td><%= link_to 'See More', product %></td>
+        
+  </tr>
+  <% end %>
+</table>
+<% end %>
+  
+
