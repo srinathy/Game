@@ -1,27 +1,36 @@
-<h3>Listing products</h3>
+<h3>Current Products on Sale</h3>
 
-<table>
-  <tr>
+<table width="600" cellpadding= "0">
+  <tr align= left>
+    <th> </th>
     <th>Name</th>
+    <th>Certificate</th>
+    <th>Release Date</th>
     <th>Price</th>
-    <th>Description</th>
-    <th></th>
+    <th>Quantity in Stock</th>  
     <th></th>
     <th></th>
   </tr>
 
 <% @products.each do |product| %>
   <tr>
-    <td><%= product.name %></td>
-    <td><%= product.price %></td>
-    <td><%= product.description %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= image_tag(product.image, :size => "75x100") %></td>
+    <td><%= h(product.name) %></td>    
+    <td align= center><%=h(product.certificate) %></td>
+    <td align= center><%= h(product.releasedate) %></td>
+    <td align= center>&pound<%= h(product.price) %></td>
+    <td align= center><%= h(product.quantity) %></td>
+    <td><%= link_to 'See More', product %></br>
+        Admin Actions:</br>
+        <%= link_to 'Edit', edit_product_path(product)%>      
+        <%= link_to 'Delete', product_path(product),
+        :method => :delete, :confirm => "Are you sure?" %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Product', new_product_path %>
+
+
+

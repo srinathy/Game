@@ -17,16 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :price %><br />
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label "Image Name:" %><br />
-    <%= f.text_field :image %>
-  </div>
+    <%= f.text_field :price %>
+  </div> 
   <div class="field">
     <%= f.label :certificate %><br />
     <%= f.collection_select :certificate, Product::CERTIFICATES, :to_s, :to_s, :include_blank => true %>
@@ -34,6 +26,18 @@
   <div class="field">
     <%= f.label :releasedate %><br />
     <%= f.date_select :releasedate %>
+  </div>
+  <div class="field">
+    <%= f.label "Image Path:" %><br />
+    <%= f.text_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class = "field">
+    <%= f.label "Stock Level:" %> <br/>
+    <%= f.number_field :quantity %> 
   </div>
   <div class="actions">
     <%= f.submit %>

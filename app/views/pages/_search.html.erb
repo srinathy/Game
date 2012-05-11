@@ -1,0 +1,36 @@
+<% #Developed by NS %>
+<% form_for(:search, :url => search_path) do |f| %>
+<span style="font-size: 24px"><u>Price Range</u></span>
+  <div class="field">
+    <%= f.label :from%>
+    <span class="symbols">$</span><%= f.text_field :low_price, :size => 4 %>
+    <%= f.label :to %>
+    <span class="symbols">$</span><%= f.text_field :up_price, :size => 4 %>
+  </div> 
+<span style="font-size: 24px"><u>Area Range</u></span>
+  <div class="field">
+    <%= f.label :from %>
+    <%= f.text_field :area_low, :size => 4 %><span class="symbols">Sq-ft</span>
+    <%= f.label :to %>
+    <%= f.text_field :area_high, :size => 4 %><span class="symbols">Sq-ft</span>
+  </div> 
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div> 
+  <div class="field">
+    <%= f.label :for %>
+    <%= f.radio_button :pfor, "Sale", :checked => true %>
+    <span class="symbols">Sale</span>
+    <%= f.radio_button :pfor, "Rent"%>
+    <span class="symbols">Rent</span>
+  </div> 
+  <div class="field">
+    <%= f.label :type, "Type: " %>
+    <%= f.select(:ptype, %w[Home Office Apartment Plot]) %>
+  </div> </br>
+  <div class="actions">
+    <%= f.submit "Search" %>
+  </div>
+<% end %>
+

@@ -1,17 +1,15 @@
-<%= form_for(@session) do |f| %>
-  <% if @session.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@session.errors.count, "error") %> prohibited this session from being saved:</h2>
-
-      <ul>
-      <% @session.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for(:session, url: sessions_path) do |f| %>
+  
+  <div class="field">
+  <%= f.label :email %><br />
+  <%= f.text_field :email %>
+  </div>
+  <div class="field">
+  <%= f.label :password %><br />
+  <%= f.password_field :password %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Sign in" %>
   </div>
 <% end %>
+<p>Don't Have an Account? <%= link_to "Sign up now!", signup_path %></p>

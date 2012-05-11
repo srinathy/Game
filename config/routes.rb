@@ -1,12 +1,27 @@
 Game::Application.routes.draw do
-  resources :sessions
+  resources :items
+
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :baskets
 
-  resources :products
+  resources :products do
+    resources :items
+  end
 
   resources :users
-
+  match '/users/:id', to: 'users#edit'
+  match '/search', to: 'pages#search'
+  match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
+  match '/empty', to: 'items#destroy', via: :delete
+  match '/upload', to: 'products#new'
+  
+  match '/products', to: 'products#index'
+  
+  match 'items/:id', to: 'items#create'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

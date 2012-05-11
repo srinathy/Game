@@ -11,21 +11,47 @@
 <body>
 <div id = "outer">
     <div id = "header">
-      <%= link_to "Sign Up", new_user_path %>
-    </div>
-    <div id = "box1">
-      <div id = "leftcol">
-        
+      <div class = "header">
+        <h1>Game Central</h1>
       </div>
-      <div id = "content">
-        <%= yield %>
+      <div id = "navigation">
+        <ul class = "navigation">
+          <b><li><%= link_to "Home", root_path %></li>
+          <li><%= link_to "Show Products", products_path %></li>
+          <% if signed_in? %>
+            <li> <%= link_to "Upload a Product", upload_path %> </li>
+            <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+            <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
+          <% else %>       
+            <li><%= link_to "Sign In", signin_path %></li>
+          <% end %>
+          </b>
+        </ul>
       </div>
-      <div id = "footer">
-        
-      </div>
-      
     </div>
     
-  </div>
+    <div id = "box1">
+      <div id = "leftcol">
+        <% form_for(:search, :url => search_path) do |f| %>
+        <% end %>
+      </div>
+      <div id = "content">     
+        <div id = "contentbox2">
+        <%= yield %>
+        </div>
+        <div id = "basket">
+          <%= render "layouts/basket" %>
+        </div>
+        <div id = "video">
+          <iframe width="290" height="300" src="http://www.youtube.com/embed/EgbUSsblCSQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+        
+      </div>
+      <div id ="footer">        
+      </div> 
+    </div>
+    
+    
+</div>
 </body>
 </html>

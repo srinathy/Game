@@ -1,19 +1,28 @@
-<div id= "contentbox2">
 <p id="notice"><%= notice %></p>
 <p> 
-  <h1><%= @product.name %></h1>
+  <center><h1><%= @product.name %></h1></center> 
 </p>
-<%= image_tag @product.image %>
+
+
 <p>
-  <b>Price: </b><%= @product.price %>     <b>Certificate:</b><%= @product.certificate %></p>
+</p>
+  <%= image_tag @product.image %>
+  
+    <b>Price: </b>&pound<%= @product.price %>
+    
+      
+  
+  
+<p><b>Certificate:</b><%= @product.certificate %></p>
   <b>Release Date: </b> <%= @product.releasedate %>
+
 <p>
+
   <b>Description:</b>
   <%= @product.description %>
 </p>
-<%= button_to 'Add to Cart', :action => :add_to_cart, :id => Product %>
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
-</div>
-<div id = "basket">      
-</div>
+<p><%= link_to 'Back', products_path %> <%= button_to "Add to Cart", item_path(:product_id => @product) %></p>
+    
+
+
+

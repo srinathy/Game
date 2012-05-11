@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-
-<%= link_to 'Edit', edit_basket_path(@basket) %> |
-<%= link_to 'Back', baskets_path %>
+<h4>Shopping Basket</h4>
+<ul>
+<% @basket.items.each do |item| %>
+<li><%= item.product.name %></li>
+<% end %>
