@@ -21,7 +21,7 @@ Game::Application.routes.draw do
   match '/upload', to: 'products#new'
   match '/products', to: 'products#index'
   match '/items/:id', to: 'items#create'
-  
+  match '/findus', to: 'pages#map'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
